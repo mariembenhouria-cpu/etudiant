@@ -1,0 +1,44 @@
+<html>
+<body>
+<h1>Liste des étudiants</h1>
+<table border="1">
+<thead>
+<tr>
+<td>ID</td>
+<td>Nom</td>
+<td>Prénom</td>
+<td>Age</td>
+<td>Moyenne</td>
+<td>Classe</td>
+<td>dateInscription</td>
+<td>Admis</td>
+<td>Supprimer</td>
+</tr>
+</thead>
+
+<tbody>
+
+{% for e in etud %}
+<tr>
+<td>{{ e.id }}</td>
+<td>{{ e.nom }}</td>
+<td>{{ e.prenom }}</td>
+<td>{{ e.age }}</td>
+<td>{{e.moyenne}}</td>
+<td>{{ e.classe }}</td>
+<td>{{e.dateInscription}}</td>
+{% if e.moyenne >= 10 %}
+   <td>Oui</td>
+{% else %}
+   <td>Non</td>
+{% endif %}
+</td>
+<td><a href="del_etud/{{ e.id }}"> X </a></td>
+</tr>
+{% endfor %}
+
+</tbody>
+</table>
+
+</body>
+</html>
